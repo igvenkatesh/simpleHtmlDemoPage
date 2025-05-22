@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed Application</title>
+    <title>Defective Application</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,112 +38,41 @@
         button:hover {
             background-color: #45a049;
         }
-        .error {
-            color: red;
-            margin-top: -10px;
-            margin-bottom: 10px;
-        }
     </style>
 </head>
 <body>
-    <h1>Fixed Application</h1>
-    <form id="fixedForm">
+    <h1>Defective Application</h1>
+    <form id="defectiveForm">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" required>
-        <div id="usernameError" class="error"></div>
+        <input type="text" id="username" name="username">
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
-        <div id="passwordError" class="error"></div>
+        <input type="password" id="password" name="password">
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        <div id="emailError" class="error"></div>
+        <input type="text" id="email" name="email">
 
         <label for="age">Age</label>
-        <input type="number" id="age" name="age" min="1" max="100" required>
-        <div id="ageError" class="error"></div>
+        <input type="number" id="age" name="age" min="1" max="100">
 
         <label for="gender">Gender</label>
-        <select id="gender" name="gender" required>
+        <select id="gender" name="gender">
             <option value="">Select</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
         </select>
-        <div id="genderError" class="error"></div>
 
         <label for="country">Country</label>
-        <input type="text" id="country" name="country" required>
-        <div id="countryError" class="error"></div>
+        <input type="text" id="country" name="country">
 
         <button type="submit">Submit</button>
     </form>
 
     <script>
-        document.getElementById('fixedForm').addEventListener('submit', function(event) {
+        document.getElementById('defectiveForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            let valid = true;
-
-            // Username validation
-            const username = document.getElementById('username').value;
-            if (username === '') {
-                document.getElementById('usernameError').textContent = 'Username is required.';
-                valid = false;
-            } else {
-                document.getElementById('usernameError').textContent = '';
-            }
-
-            // Password validation
-            const password = document.getElementById('password').value;
-            const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-            if (!passwordPattern.test(password)) {
-                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long and include a mix of letters and numbers.';
-                valid = false;
-            } else {
-                document.getElementById('passwordError').textContent = '';
-            }
-
-            // Email validation
-            const email = document.getElementById('email').value;
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                document.getElementById('emailError').textContent = 'Please enter a valid email address.';
-                valid = false;
-            } else {
-                document.getElementById('emailError').textContent = '';
-            }
-
-            // Age validation
-            const age = document.getElementById('age').value;
-            if (age < 1 || age > 100) {
-                document.getElementById('ageError').textContent = 'Age must be between 1 and 100.';
-                valid = false;
-            } else {
-                document.getElementById('ageError').textContent = '';
-            }
-
-            // Gender validation
-            const gender = document.getElementById('gender').value;
-            if (gender === '') {
-                document.getElementById('genderError').textContent = 'Please select your gender.';
-                valid = false;
-            } else {
-                document.getElementById('genderError').textContent = '';
-            }
-
-            // Country validation
-            const country = document.getElementById('country').value;
-            if (country === '') {
-                document.getElementById('countryError').textContent = 'Country is required.';
-                valid = false;
-            } else {
-                document.getElementById('countryError').textContent = '';
-            }
-
-            if (valid) {
-                alert('Form submitted successfully!');
-            }
+            alert('Form submitted successfully!');
         });
     </script>
 </body>
